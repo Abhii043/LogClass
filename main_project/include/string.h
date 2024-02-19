@@ -1,26 +1,18 @@
 #ifndef string0
 #define string0
 
-#include<cstring>
 #include<iostream>
-
 
 namespace Type {
 	class String {
 	private:
-		std::unique_ptr<char[]> m_buffer0;
+		std::unique_ptr<char[]> m_buffer;
 		unsigned int m_size;
 
 
 	public:
 	
-		String(const char* str ="") {
-			// std::cout << "Default constructor "<<"\n";
-			m_size = static_cast<int>(strlen(str));
-			m_buffer0 = std::make_unique<char[]>(m_size + 1);
-			memcpy(m_buffer0.get(), str, m_size + 1);
-		}
-
+		String(const char* str = "");
 
 		int length() const
 		{
@@ -28,6 +20,10 @@ namespace Type {
 		}
 
 		char& operator[](unsigned int index) const;
+
+		char& at(unsigned int index) const;
+
+		 const char* raw() const;
 
 		String(const String& str);
 

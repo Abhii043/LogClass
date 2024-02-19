@@ -44,8 +44,7 @@ catch (Exception::myException& e) {
 	std::cout << e.getMessage() << '\n';
 }
 
-Date::Date(unsigned dd, unsigned int mm, unsigned int yy) : m_day{ dd }, m_month{ mm }, m_year{ yy } {
-	updateCache();
+void Date::dateFormater(unsigned int dd, unsigned int mm, unsigned int yy) {
 	try {
 		if (mm <= 12 && mm > 0) {
 			if (dd <= DaysInMonth(mm, yy)) {
@@ -66,26 +65,53 @@ Date::Date(unsigned dd, unsigned int mm, unsigned int yy) : m_day{ dd }, m_month
 	}
 }
 
-void Date::setDate(unsigned int dd, unsigned int mm, unsigned int yy)
-{
-	try {
-		if (mm <= 12 && mm > 0) {
-			if (dd <= DaysInMonth(mm, yy)) {
-				m_day = dd;
-				m_month = mm;
-				m_year = yy;
-			}
-			else {
-				throw Exception::InvalidDate{ "Please Enter a Valid Day Input" };
-			}
-		}
-		else {
-			throw Exception::InvalidDate{ "Please Enter a Valid Month Input" };
-		}
+Date::Date(unsigned a, unsigned int b, unsigned int c, d_Format format) {
+	m_Format = format;
+	switch (format) {
+	case dmy:
+		dateFormater(a, b, c);
+		break;
+	case mdy:
+		dateFormater(b, a, c);
+		break;
+	case dym:
+		dateFormater(a, c, b);
+		break;
+	case myd:
+		dateFormater(c, a, b);
+		break;
+	case ydm:
+		dateFormater(b, c, a);
+		break;
+	case ymd:
+		dateFormater(c, b, a);
+		break;
 	}
-	catch (Exception::myException& e) {
-		std::cout << e.getMessage() << "\n";
+	updateCache();
+}
+
+void Date::setDate(unsigned int dd, unsigned int mm, unsigned int yy) {
+	switch (m_Format) {
+	case dmy:
+		dateFormater(dd, mm, yy);
+		break;
+	case mdy:
+		dateFormater(mm, dd, yy);
+		break;
+	case dym:
+		dateFormater(dd, yy, mm);
+		break;
+	case myd:
+		dateFormater(yy, dd, mm);
+		break;
+	case ydm:
+		dateFormater(mm, yy, dd);
+		break;
+	case ymd:
+		dateFormater(yy, mm, dd);
+		break;
 	}
+	
 }
 
 Date& Date::addDay(unsigned int days)
@@ -172,14 +198,63 @@ Date& Date::addYear(unsigned int year)
 
 void Date::DisplayDate() const
 {
-	std::cout << "date is: " << m_day << " / " << m_month << " / " << m_year << "\n";
+	switch (m_Format) {
+	case dmy:
+		std::cout << "date is: " << m_day << " / " << m_month << " / " << m_year << "\n";
+		break;
+	case mdy:
+		std::cout << "date is: " << m_month << " / " << m_day << " / " << m_year << "\n";
+		break;
+	case dym:
+		std::cout << "date is: " << m_day << " / " << m_year << " / " << m_month<< "\n";
+		break;
+	case myd:
+		std::cout << "date is: " << m_month << " / " << m_year << " / " << m_day << "\n";
+		break;
+	case ydm:
+		std::cout << "date is: " << m_year << " / " << m_day << " / " << m_month << "\n";
+		break;
+	case ymd:
+		std::cout << "date is: " << m_year << " / " << m_month << " / " << m_day << "\n";
+		break;
+	}
 }
 
+// change in conditions 
 void Date::updateCache() const {
 	cache = "";
-	cache.append(String::toString(m_day)).append("/");
-	cache.append(String::toString(m_month)).append("/");
-	cache.append(String::toString(m_year));
+	switch (m_Format) {
+	case dmy:
+		cache.append(String::toString(m_day)).append("/");
+		cache.append(String::toString(m_month)).append("/");
+		cache.append(String::toString(m_year));
+		break;
+	case mdy:
+		cache.append(String::toString(m_month)).append("/");
+		cache.append(String::toString(m_day)).append("/");
+		cache.append(String::toString(m_year));
+		break;
+	case dym:
+		cache.append(String::toString(m_day)).append("/");
+		cache.append(String::toString(m_year)).append("/");
+		cache.append(String::toString(m_month));
+		break;
+	case myd:
+		cache.append(String::toString(m_month)).append("/");
+		cache.append(String::toString(m_year)).append("/");
+		cache.append(String::toString(m_day));
+		break;
+	case ydm:
+		cache.append(String::toString(m_year)).append("/");
+		cache.append(String::toString(m_day)).append("/");
+		cache.append(String::toString(m_month));
+		break;
+	case ymd:
+		cache.append(String::toString(m_year)).append("/");
+		cache.append(String::toString(m_month)).append("/");
+		cache.append(String::toString(m_day));
+		break;
+	}
 	isCacheValid = true;
 }
 

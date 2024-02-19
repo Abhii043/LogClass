@@ -10,5 +10,7 @@
     <ClInclude Include="include\date.h" />
     <ClInclude Include="include\log.h" />
     <ClInclude Include="include\string.h" />
+    <ClInclude Include="include\logger.h" />
+    <ClInclude Include="include\fileDump.h" />
   </ItemGroup>
 </Project>

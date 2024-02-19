@@ -3,6 +3,7 @@
 #include "./include/date.h"
 #include "./include/string.h"
 #include "./include/Exception.h"
+#include"./include/logger.h"
 
 using systemLog::Log;
 using Utility::Date;
@@ -12,11 +13,15 @@ using Exception::myException;
 
 int main()
 {
-	Log log;
-	log.setLogLevel(Log::Level::LevelInfo);
+	std::shared_ptr<Log> logger1 = std::make_shared<Log>( "Abhiiiiiii" , Log::LevelDebug ) ;
+	systemLog::setLogger(logger1) ;
 
-	log.Info("Info" , 2);
-	log.Warn("warn" , "Abhi");
-	log.Error("error" , 'A');
+	logger1->dumpInFile = true;
+
+	systemLog::Debug("Debug", "Debugging");
+	systemLog::Info("Info" , "Information is useful");
+	systemLog::Warn("warn" , "Warningggg");
+	systemLog::Error("error" , "Erroringgg");
+	systemLog::Critical("Critical", "it is very Critical");
 
 }
