@@ -19,17 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="include\Exception.h" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\date.cpp" />
-    <ClCompile Include="src\string.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\date.h" />
     <ClInclude Include="include\fileDump.h" />
     <ClInclude Include="include\log.h" />
     <ClInclude Include="include\logger.h" />
-    <ClInclude Include="include\string.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

@@ -1,0 +1,15 @@
+20-02-2024 18:26:34 [ Abhiiiiiii ] [ DEBUG ] : Debug Debugging 
+20-02-2024 18:26:34 [ Abhiiiiiii ] [ INFO ] : Info Information is useful 
+20-02-2024 18:26:34 [ Abhiiiiiii ] [ WARNING ] : warn Warningggg 
+20-02-2024 18:26:34 [ Abhiiiiiii ] [ ERROR ] : error Erroringgg 
+20-02-2024 18:26:34 [ Abhiiiiiii ] [ CRITICAL ] : Critical it is very Critical 
+20-02-2024 18:26:49 [ Abhiiiiiii ] [ DEBUG ] : Debug Debugging 
+20-02-2024 18:26:49 [ Abhiiiiiii ] [ INFO ] : Info Information is useful 
+20-02-2024 18:26:49 [ Abhiiiiiii ] [ WARNING ] : warn Warningggg 
+20-02-2024 18:26:49 [ Abhiiiiiii ] [ ERROR ] : error Erroringgg 
+20-02-2024 18:26:49 [ Abhiiiiiii ] [ CRITICAL ] : Critical it is very Critical 
+20-02-2024 18:27:42 [ Abhiiiiiii ] [ DEBUG ] : Debug Debugging 
+20-02-2024 18:27:42 [ Abhiiiiiii ] [ INFO ] : Info Information is useful 
+20-02-2024 18:27:42 [ Abhiiiiiii ] [ WARNING ] : warn Warningggg 
+20-02-2024 18:27:42 [ Abhiiiiiii ] [ ERROR ] : error Erroringgg 
+20-02-2024 18:27:42 [ Abhiiiiiii ] [ CRITICAL ] : Critical it is very Critical 

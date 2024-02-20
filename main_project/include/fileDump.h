@@ -3,7 +3,6 @@
 
 #include<iostream>
 #include<fstream>
-#include"../include/string.h"
 
 namespace systemLog {
 	class fileDump {
@@ -11,10 +10,10 @@ namespace systemLog {
 		std::ofstream writeFile{};
 	public:
 		fileDump() : writeFile{ "log.txt" , std::ios::app } {}
-		fileDump(const Type::String& fileName) : writeFile{ fileName.raw() , std::ios::app} {}
+		fileDump(const std::string& fileName) : writeFile{ fileName , std::ios::app} {}
 		~fileDump() = default;
 
-		void flush1(const Type::String& buffer) {
+		void flush1(const std::string& buffer) {
 			writeFile << buffer;
 			writeFile.flush();
 		}

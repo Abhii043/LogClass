@@ -1,14 +1,8 @@
 #include <iostream>
 #include "./include/log.h"
-#include "./include/date.h"
-#include "./include/string.h"
-#include "./include/Exception.h"
 #include"./include/logger.h"
 
 using systemLog::Log;
-using Utility::Date;
-using Type::String;
-using Exception::myException;
 
 
 int main()

@@ -2,14 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\string.cpp" />
-    <ClCompile Include="src\date.cpp" />
-    <ClCompile Include="include\Exception.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\date.h" />
     <ClInclude Include="include\log.h" />
-    <ClInclude Include="include\string.h" />
     <ClInclude Include="include\logger.h" />
     <ClInclude Include="include\fileDump.h" />
   </ItemGroup>
